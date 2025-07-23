@@ -1,20 +1,81 @@
 @import "tailwindcss";
 
 @theme inline {
-  --primary: #12ed39;
+  /* --breakpoint-lg: 1272px; */
+
+  --rounded-15-73: 15.73px;
+  --rounded-20: 20px;
+  --rounded-15: 15px;
+
+  --leading-1.4: 1.4;
+  --leading-13: 13px;
+
+  --color-primary: #12ed39;
+
+  --color-brd-200: #ededed;
+  --color-brd-300: #c4c4c4;
+
+  --color-glass-100: #8c8c8c57;
 }
 
 @layer base {
   body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-sora);
   }
 
   .nav_shadow {
     border: 0.98px solid;
-    border-image-source: linear-gradient(
-      180deg,
-      rgba(164, 163, 163, 0.2) 0%,
-      rgba(102, 102, 102, 0.4) 100%
-    );
+    border-image-source: linear-gradient(180deg, rgba(164, 163, 163, 0.2) 0%, rgba(102, 102, 102, 0.4) 100%);
   }
+}
+
+@utility container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@utility flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@utility flex_between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@utility btn {
+  padding: 14px 31.46px;
+  @apply rounded-full font-semibold not-disabled:active:scale-[0.99] not-disabled:active:opacity-85 transition-all;
+}
+
+@utility btn_secondary {
+  @apply btn bg-gray-100 hover:not-disabled:bg-gray-200;
+}
+
+@utility btn_primary {
+  @apply btn bg-primary hover:bg-primary/90;
+}
+
+@utility rounded-* {
+  border-radius: --value(--rounded- *, [length]);
+}
+
+@utility leading-* {
+  line-height: --value(--leading- *, [length]);
+}
+
+@utility glassEffect {
+  backdrop-filter: blur(25px);
+  @apply border border-brd-300 bg-glass-100;
+}
+
+@utility ellipse_grad {
+  background: linear-gradient(180deg, #51fc8b 0%, rgba(81, 252, 139, 0) 100%);
+  backdrop-filter: blur(600px);
+  filter: blur(200px);
 }

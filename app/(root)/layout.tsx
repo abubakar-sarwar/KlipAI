@@ -8,7 +8,7 @@ const MainLayout = ({
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main className="pt-[78px] lg:pt-[105px]">{children}</main>
     </>
   );
 };
